@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALLER PRÁCTICO DE JAVASCRIPT: MATEMÁTICAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            font-size: 62.5%;
+            font-family: 'Anton', sans-serif;
+            background-image: url("images/mathBackground.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            font-size: 3rem;
+            color: #5d4b26;
+        }
+        p{
+            margin: 4px;
+        }
+        /*AREAS Y PERIMETROS*/
+        .options-math{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        .options-math>div{
+            margin: 8px 0;
+            font-size: 1.2rem;
+            margin: 0 8px;
+        }
+        .container-main>div h2{
+            color: #6c562c;
+            background-color: #fca4a4;
+            border: 1px solid #8e927c;
+            border-radius: 50px;
+        }
+        .options-math__perimetro-calculo, .options-math__porcentajes-calculo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .options-math__perimetro-calculo>div{
+            display: flex;
+            flex-direction: column;
+        }
+        .cuadrado,.triangulo,.circulo,.datos{
+            width: 85%;
+        }
+        .cuadrado figure,.triangulo figure,.circulo figure{
+            margin: 0;
+        }
+        .cuadrado__input, .triangulo__input, .circulo__input{
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cuadrado__input input, .triangulo__input input, .circulo__input input, .datos input{
+            height: 32px;
+            margin: 0 8px;
+            font-size: 1rem;
+        }
+        .cuadrado button, .triangulo button, .circulo button, .datos button, .insert-cupon button, .edit-cupon button, .delete-cupon button, .btn-calc-estadistica{
+            background-color: #8e927c;
+            border-radius: 10px;
+            color: #cdbaa4;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 1px solid #5d4b26;
+            width: 100%;
+            margin: 8px 0;
+        }
+        /*PORCENTAJES*/
+        h3{
+            margin: 0;
+            color: #5d4b26;
+        }
+        .cupon-avaiable{
+            background-color: #bc9c5e;
+            border-radius: 50px;
+            width: 100%;
+            margin: 8px;
+        }
+        .datos-precio{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .datos input{
+            margin: 4px 8px;
+        }
+        .crud-cupon div{
+            margin: 8px 0;
+        }
+        .insert-cupon__name,.insert-cupon__descount,.edit-cupon__name,.edit-cupon__descount,.delete-cupon__name{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .insert-cupon__name input,.insert-cupon__descount input ,.edit-cupon__name input ,.edit-cupon__descount input ,.delete-cupon__name input, .length-array input, .input-element-array{
+            margin: 8px 4px;
+            height: 32px;
+            font-size: 1rem;
+        }
+        /*ESTADÍSTICA*/
+        .insert-array__elements{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .insert-array__text, .insert-array__input{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .input-element-text{
+            margin: 10px 4px;
+        }
+        .estadistica-basica{
+            margin-top: 20px;
+        }
+        .estadistica-basica div{
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>TALLER PRÁCTICO DE JAVASCRIPT: MATEMÁTICAS Y ESTADÍSTICA BÁSICA</h1>
+        <div class="container-main">
+            <div class="options-math">
+                <div class="options-math__perimetro">
+                    <h2>PERÍMETROS Y ÁREAS</h2>
+                    <div class="options-math__perimetro-calculo">
+                        <div class="cuadrado">
+                            <figure>
+                                <img src="images/cuadrado.png" alt="CuadradoIMG">
+                            </figure>
+                            <div class="cuadrado__input">
+                                <label for="ladoCuadrado">Lado:</label>
+                                <input type="number" id="ladoCuadrado">
+                            </div>
+                            <button id="btnCuadrado">Calcular área y perímetro</button>
+                            <p id="resultadoAreaCuadrado"></p>
+                            <p id="resultadoPerimetroCuadrado"></p>
+                        </div>
+                        <div class="triangulo">
+                            <figure>
+                                <img src="images/triangulo.png" alt="TrianguloIMG">
+                            </figure>
+                            <div class="triangulo__input">
+                                <label for="ladoTriangulo1">Lado1:</label>
+                                <input type="number" id="ladoTriangulo1">
+                            </div>
+                            <div class="triangulo__input">
+                                <label for="ladoTriangulo2">Lado2:</label>
+                                <input type="number" id="ladoTriangulo2">
+                            </div>
+                            <div class="triangulo__input">
+                                <label for="ladoTriangulo3">Lado3:</label>
+                                <input type="number" id="ladoTriangulo3">
+                            </div>
+                            <button id="btnTriangulo">Calcular área y perímetro</button>
+                            <p id="resultadoAreaTriangulo"></p>
+                            <p id="resultadoPerimetroTriangulo"></p>
+                        </div>
+                        <div class="circulo">
+                            <figure>
+                                <img src="images/circulo.png" alt="CirculoIMG">
+                            </figure>
+                            <div class="circulo__input">
+                                <label for="radioCirculo">Radio:</label>
+                                <input type="number" id="radioCirculo">
+                            </div>
+                            <button id="btnCirculo">Calcular área y perímetro</button>
+                            <p id="resultadoAreaCirculo"></p>
+                            <p id="resultadoPerimetroCirculo"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="options-math__porcentajes">
+                    <h2>PORCENTAJES</h2>
+                    <div class="options-math__porcentajes-calculo">
+                        <h3>CUPONES DISPONIBLES</h3>
+                        <div class="cupon-avaiable">
+                            <p id="cupon-avaiable__description"></p>
+                        </div>
+                        <div class="datos">
+                            <div class="datos-precio">
+                                <label for="precio">Inserte precio: </label>
+                                <input type="number" id="precio">
+                            </div>
+                            <div class="datos-cupon">
+                                <label for="cupon">Inserte cupón: </label>
+                                <input type="text" id="cupon">
+                            </div>
+                            <button id="btnCalcularPagoTotal">Calcular precio total</button>
+                            <p id="resultadoPrecio"></p>
+                        </div>
+                        <div class="crud-cupon">
+                            <div class="insert-cupon">
+                                <h3>Insertar un nuevo cupón</h3>
+                                <div class="insert-cupon__name">
+                                    <label for="nameNewCupon">Inserte nuevo cupón: </label>
+                                    <input type="text" id="nameNewCupon">
+                                </div>
+                                <div class="insert-cupon__descount">
+                                    <label for="descountNewCupon">Descuento: </label>
+                                    <input type="number" id="descountNewCupon">
+                                </div>
+                                <button id="btnInsertCupon">Insertar cupón</button>
+                                <p id="insertCuponText"></p>
+                            </div>
+                            <div class="edit-cupon">
+                                <h3>Editar un nuevo cupón</h3>
+                                <div class="edit-cupon__name">
+                                    <label for="nameEditCupon">Nombre de cupón: </label>
+                                    <input type="text" id="nameEditCupon">
+                                </div>
+                                <div class="edit-cupon__descount">
+                                    <label for="descountEditCupon">Descuento: </label>
+                                    <input type="number" id="descountEditCupon">
+                                </div>
+                                <button id="btnEditCupon">Editar cupón</button>
+                                <p id="editCuponText"></p>
+                            </div>
+                            <div class="delete-cupon">
+                                <h3>Eliminar un nuevo cupón</h3>
+                                <div class="delete-cupon__name">
+                                    <label for="nameDeleteCupon">Nombre de cupón: </label>
+                                    <input type="text" id="nameDeleteCupon">
+                                </div>
+                                <button id="btnDeleteCupon">Eliminar cupón</button>
+                                <p id="deleteCuponText"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options-math__estadística">
+                    <h2>ESTADÍSTICA</h2>
+                    <div class="options-math__estadística-calculo">
+                        <h3>NÚMERO DE ELEMENTOS ARRAY</h3>
+                        <div class="length-array">
+                            <label for="lengthArray">Cantidad de elementos: </label>
+                            <input type="number" id="lengthArray">
+                        </div>
+                        <div class="insert-array">
+                            <h3>INSERTAR ELEMENTOS ARRAY</h3>
+                            <div class="insert-array__elements">
+                                <div class="insert-array__text" id="insertArrayText">
+                                </div>
+                                <div class="insert-array__input" id="insertArrayInput">
+                                </div>
+                            </div>
+                            <div id="calcularEstadistica"></div>
+                        </div>
+                        <div class="estadistica-basica">
+                            <div class="promedio-array">
+                                <h3>PROMEDIO DEL ARRAY</h3>
+                                <p id="promedioResult"></p>
+                            </div>
+                            <div class="mediana-array">
+                                <h3>MEDIANA DEL ARRAY</h3>
+                                <p id="medianaResult"></p>
+                            </div>
+                            <div class="moda-array">
+                                <h3>MODA DEL ARRAY</h3>
+                                <p id="modaResult"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

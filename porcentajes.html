@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCENTAJES</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: grid;
+            align-items: start;
+            justify-content: end;
+            font-size: 62.5%;
+            background-image: url(SCREENSHOTS/fondo\ platzi.jpg);
+        }
+        .container-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: 100px;
+            right: 400px;
+        }
+        .datos{
+            display: flex;
+            flex-direction: column;
+        }
+        .datos label, .datos input, .datos button, .resultado{
+            margin: 8px 0;
+            font-size: 2rem;
+            color: white;
+        }
+        .datos input{
+            color: black;
+        }
+        button{
+            background-color: #98C841;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="container-body">
+                <div class="datos">
+                    <label for="precio">Inserte precio: </label>
+                    <input type="number" id="precio">
+                    <label for="cupon">Inserte cupón: </label>
+                    <input type="text" id="cupon">
+                    <button id="calcular">Calcular</button>
+                </div>
+                <div class="resultado">
+                    <p id="resultado"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="porcentajes.js"></script>
+</body>
+</html>

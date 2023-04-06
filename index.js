@@ -132,7 +132,7 @@ function pagoTotal(){
 
         if(descuento < 100){
             let pago = precio.value - (precio.value * descuento)/100;
-            resultadoPrecio.innerHTML = "Total a pagar: " + pago;
+            resultadoPrecio.innerHTML = "Total a pagar: " + pago.toFixed(2);
         }
         else{
             resultadoPrecio.innerHTML="¿Estás regalando el producto?";
@@ -245,7 +245,7 @@ function promedio(){
                 sumaTotal = sumaTotal + Number(listInputs[i].value);
             }
             let promedio = sumaTotal / listInputs.length;
-            promedioResult.innerHTML="El promedio es: "+promedio;
+            promedioResult.innerHTML="El promedio es: "+promedio.toFixed(2);
         }
     }
 }
@@ -279,7 +279,7 @@ function mediana(){
             else{
                 mediana = array[Math.floor(array.length/2)];
             }
-            medianaResult.innerHTML="La mediana es: "+mediana;
+            medianaResult.innerHTML="La mediana es: "+mediana.toFixed(2);
         }
     }
 }

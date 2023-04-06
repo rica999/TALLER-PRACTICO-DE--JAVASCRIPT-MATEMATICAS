@@ -22,7 +22,7 @@
             font-size: 62.5%;
             font-family: 'Anton', sans-serif;
             background-image: url("images/mathBackground.jpg");
-            background-repeat: no-repeat;
+            background-repeat: repeat-y;
             background-size: cover;
         }
         h1{
@@ -135,6 +135,20 @@
         }
         .estadistica-basica div{
             margin: 20px 0;
+        }
+        @media (max-width:900px){
+            body{
+                height: auto;
+                background-repeat: repeat-y;
+                background-size: contain;
+            }
+            .options-math{
+                display: flex;
+                flex-direction: column;
+            }
+            h1{
+            font-size: 2rem;
+        }
         }
     </style>
 </head>
